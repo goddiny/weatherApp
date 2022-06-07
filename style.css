@@ -1,0 +1,113 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.weather_container {
+	margin: 0 auto;
+	width: 225px;
+	height: auto;
+	border: 2px solid rgb(0, 0, 0);
+	border-radius: 15px;
+	background-image: url(https://sutochno.ru/doc/images/galleries/180/vershina1.jpg);
+	background-size: cover;
+
+}
+
+.weather_title {
+	height: 50px;
+	margin: 6px;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.5);
+	display: flex;
+	align-items: center;
+}
+
+.title_text {
+	margin: 0 auto;
+	font-size: 33px;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-align: center;
+	color: #00568b;
+}
+
+.weather_time {
+	height: 100px;
+	margin: 7px 6px 6px 6px;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.5);
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+}
+
+.time_title {
+	height: 50%;
+	margin: 0 auto;
+	font-size: 26px;
+	color: #00568b;
+}
+
+.time {
+	margin: 0 auto;
+	font-size: 26px;
+}
+
+.indicators_container {
+	height: 300px;
+	margin: 7px 6px 6px 6px;
+	border-radius: 10px;
+	background-color: rgba(255, 255, 255, 0.5);
+	display: flex;
+	flex-flow: column;
+	justify-content: space-around;
+}
+
+.temperature_container {
+	height: 25%;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+}
+
+.temperature {
+	margin: 0 auto;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.humidity_container {
+	display: flex;
+	justify-content: center;
+}
+
+.humidity{
+	font-size: 26px;
+}
+
+.cloudcover_container {
+	display: flex;
+	justify-content: center;
+}
+
+.cloudcover{
+	font-size: 26px;
+}
+
+.precipitation_container{
+	display: flex;
+	justify-content: center;
+}
+
+.precipitation{
+	font-size: 26px;
+}
+img {
+	width: 30px;
+	height: 30px;
+	padding: 0;
+	margin-right: 10px;
+}
