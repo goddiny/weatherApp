@@ -1,9 +1,13 @@
+/** <============= Обнуление стилей =============> */
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 	font-family: 'Montserrat', sans-serif;
 }
+
+/** <============= Основная погода =============> */
 
 .weather_container {
 	margin: 0 auto;
@@ -18,6 +22,7 @@
 
 .weather_title {
 	height: 50px;
+	min-height: 50px;
 	margin: 6px;
 	border-radius: 10px;
 	background-color: rgba(255, 255, 255, 0.5);
@@ -36,6 +41,7 @@
 
 .weather_time {
 	height: 100px;
+	min-height: 60px;
 	margin: 7px 6px 6px 6px;
 	border-radius: 10px;
 	background-color: rgba(255, 255, 255, 0.5);
@@ -57,7 +63,7 @@
 }
 
 .indicators_container {
-	height: 300px;
+	height: 400px;
 	margin: 7px 6px 6px 6px;
 	border-radius: 10px;
 	background-color: rgba(255, 255, 255, 0.5);
@@ -79,12 +85,21 @@
 	font-weight: bold;
 }
 
+.windspeed_container{
+	display: flex;
+	justify-content: center;
+}
+
+.windspeed {
+	font-size: 26px;
+}
+
 .humidity_container {
 	display: flex;
 	justify-content: center;
 }
 
-.humidity{
+.humidity {
 	font-size: 26px;
 }
 
@@ -93,21 +108,49 @@
 	justify-content: center;
 }
 
-.cloudcover{
+.cloudcover {
 	font-size: 26px;
 }
 
-.precipitation_container{
+.precipitation_container {
 	display: flex;
 	justify-content: center;
 }
 
-.precipitation{
+.precipitation {
 	font-size: 26px;
 }
+
 img {
 	width: 30px;
 	height: 30px;
 	padding: 0;
 	margin-right: 10px;
+}
+
+.refresh {
+	width: 30px;
+	height: auto;
+	margin: 0 auto;
+	padding: 0;
+	border: none;
+	border-radius: 15px;
+	font: inherit;
+	color: inherit;
+	background-color: transparent;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	transition: 0.5s ease;
+}
+
+.refresh:hover {
+	transform: rotate(360deg);
+	transition: 0.5s;
+	box-shadow: 0 0 25px rgb(255, 255, 255);
+	background-color: white;
+}
+
+.refresh>img {
+	margin: 0 auto;
 }
