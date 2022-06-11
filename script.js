@@ -1,7 +1,7 @@
 //*Константы
 const API_ENDPOINT = "https://api.open-meteo.com/v1";
 const HOURLY_SETTINGS =
-  "temperature_2m,relativehumidity_2m,precipitation,cloudcover,weathercode,windspeed_10m&windspeed_unit=ms";
+  "temperature_2m,relativehumidity_2m,precipitation,cloudcover_mid,weathercode,windspeed_10m&windspeed_unit=ms";
 const CITY_LATITUDE = "51.672";
 const CITY_LONGITUDE = "39.1843";
 
@@ -47,6 +47,53 @@ const getCurrentSecond = () => {
   return minutes * 60 + date.getSeconds();
 };
 
+//*Получает имя для картинки по коду погоды
+const getWeatherName = (data, idx) => {
+  let weatherName;
+  //ясно
+  if (data.hourly.weathercode[idx] === 0) {
+    weatherName = "sunny";
+  }
+  //почти ясно
+  else if (data.hourly.weathercode[idx] === 1 || 2 || 3) {
+    weatherName = "cloudly";
+  }
+  //туман
+  else if (
+    data.hourly.weathercode[idx] === 45 ||
+    48 ||
+    51 ||
+    53 ||
+    55 ||
+    56 ||
+    57
+  ) {
+    weatherName = "fog";
+  }
+  //дождь
+  else if (data.hourly.weathercode[idx] === 61 || 63 || 65 || 66 || 67) {
+    weatherName = "rain";
+  }
+  //снег
+  else if (data.hourly.weathercode[idx] === 71 || 73 || 75 || 77 || 85 || 86) {
+    weatherName = "snow";
+  }
+  //ливни
+  else if (data.hourly.weathercode[idx] === 80 || 81 || 82) {
+    weatherName = "shower";
+  } else {
+    weatherName = "err";
+  }
+
+  return weatherName;
+};
+
+//*Добавляет ссылку на картику по имени погоды в HTML
+const renderWeatherPic = (name) => {
+  const weatherCodeLink = `images/weathercode/${name}.gif`;
+  document.querySelector(".weathercode").src = weatherCodeLink;
+};
+
 //*Получает данные из даты и сопоставляет их с показателем
 const getWeatherData = (data, idx) => {
   return [
@@ -70,8 +117,8 @@ const getWeatherData = (data, idx) => {
     },
     {
       key: "cloudcover",
-      value: `${getAverageDelta(data.hourly.cloudcover, idx, 1)}${
-        data.hourly_units.cloudcover
+      value: `${getAverageDelta(data.hourly.cloudcover_mid, idx, 1)}${
+        data.hourly_units.cloudcover_mid
       }`,
     },
     {
@@ -104,7 +151,9 @@ const getMeteoData = async (latitude, longitude) => {
     const timeArr = data.hourly.time;
     const timeIndex = timeArr.indexOf(currentTime);
     const weatherData = getWeatherData(data, timeIndex);
+    const weatherName = getWeatherName(data, timeIndex);
 
+    renderWeatherPic(weatherName);
     renderWeatherData(weatherData, time);
   } catch (err) {
     return console.error(err);

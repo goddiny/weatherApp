@@ -9,20 +9,25 @@
 
 /** <============= Основная погода =============> */
 
+.container {
+	display: flex;
+	height: 100vh;
+	align-items: center;
+}
+
 .weather_container {
 	margin: 0 auto;
 	width: 225px;
-	height: auto;
+	height: 630px;
 	border: 2px solid rgb(0, 0, 0);
 	border-radius: 15px;
-	background-image: url(https://sutochno.ru/doc/images/galleries/180/vershina1.jpg);
+	background-image: url(images/vershina1.jpg);
 	background-size: cover;
 
 }
 
 .weather_title {
 	height: 50px;
-	min-height: 50px;
 	margin: 6px;
 	border-radius: 10px;
 	background-color: rgba(255, 255, 255, 0.5);
@@ -63,7 +68,7 @@
 }
 
 .indicators_container {
-	height: 400px;
+	height: 450px;
 	margin: 7px 6px 6px 6px;
 	border-radius: 10px;
 	background-color: rgba(255, 255, 255, 0.5);
@@ -72,8 +77,21 @@
 	justify-content: space-around;
 }
 
+.weathercode_container {
+	height: auto;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+}
+
+.weathercode {
+	margin: 0 auto;
+	height: 80px;
+	width: 80px;
+	border-radius: 15px;
+}
+
 .temperature_container {
-	height: 25%;
 	display: flex;
 	flex-flow: column;
 	justify-content: center;
